@@ -96,28 +96,37 @@ AddrSpace::AddrSpace(OpenFile *executable)
 					// a separate page, we could set its
 					// pages to be read-only
     }
+		/*
+		for(int k = 0; k < 12; k+=2){
+			pageTable[k].readOnly = true;
+		}
+		--ESTE LAS OCUPA--
+		Tira exception:
+		Unexpected user mode exception 3 512
+		Assertion failed: line 268, file "../userprog/exception.cc"
+		Aborted (core dumped)
+
+		*/
 
 // zero out the entire address space, to zero the unitialized data segment
 // and the stack segment
     bzero(machine->mainMemory, size);
-
 // then, copy in the code and data segments into memory
     if (noffH.code.size > 0){
 			//Buscar en la tabla el espacio fisico correspondiente al espacio virtual
-			for(int i = 0; i < PageSize; i++){
+			for(int y = 0; y < PageSize; y++){
 	        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n",
 				noffH.code.virtualAddr, noffH.code.size);
-	        executable->ReadAt(&(machine->mainMemory[pageTable[i].physicalPage*PageSize]),
-				PageSize, noffH.code.inFileAddr+i*PageSize);
-				//pageTable[i].readOnly = true; Con esto se cae :C
+	        executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*size]),
+				size, noffH.code.inFileAddr+y	*size);
 			}
     }
     if (noffH.initData.size > 0) {
-			for(int i = 0; i < PageSize; i++){
+			for(int y = 0; y < PageSize; y++){
 	        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
 				noffH.initData.virtualAddr, noffH.initData.size);
-					executable->ReadAt(&(machine->mainMemory[pageTable[i].physicalPage*PageSize]),
-				PageSize, noffH.initData.inFileAddr+i*PageSize);
+					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*size]),
+				size, noffH.initData.inFileAddr+y*size);
 
 			}
     }
