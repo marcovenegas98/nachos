@@ -140,7 +140,19 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
 			}
     }
+		for(int y = 0; y < UserStackSize; y++){
+			//Reserving the stack size for the process.
+			myMap->Find();
+		}
 		//FALTA LO MISMO PARA LA PILA, QUE NO SE COMO SE PONE.
+}
+
+AddrSpace::AddrSpace(AddrSpace *space){
+	this->pageTable = space->pageTable;
+	for(int y = 0; y < UserStackSize; y++){
+		//Reserving the stack size for the child process.
+		myMap->Find();
+	}
 }
 
 //----------------------------------------------------------------------
