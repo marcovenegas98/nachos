@@ -102,23 +102,24 @@ AddrSpace::AddrSpace(OpenFile *executable)
     bzero(machine->mainMemory, size);
 
 // then, copy in the code and data segments into memory
-		unsigned int virtualPage = noff.initData.virtualAddr/PageSize;
-		unsigned int virtualPageLoc = noff.initData.virtualAddr%PageSize;
-		unsigned int physicalPage = pageTable[virtualPageLoc].physicalPage;
-		unsigned int memoryLoc = physicalPage*PageSize+virtualPageLoc;
     if (noffH.code.size > 0){
-        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n",
-			noffH.code.virtualAddr, noffH.code.size);
 			//Buscar en la tabla el espacio fisico correspondiente al espacio virtual
-        executable->ReadAt(&(machine->mainMemory[memoryLoc]),
-			noffH.code.size, noffH.code.inFileAddr);
+			for(int i = 0; i < PageSize; i++){
+	        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n",
+				noffH.code.virtualAddr, noffH.code.size);
+	        executable->ReadAt(&(machine->mainMemory[pageTable[i].physicalPage*PageSize]),
+				PageSize, noffH.code.inFileAddr+i*PageSize);
+				//pageTable[i].readOnly = true; Con esto se cae :C
+			}
     }
     if (noffH.initData.size > 0) {
-        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
-			noffH.initData.virtualAddr, noffH.initData.size);
+			for(int i = 0; i < PageSize; i++){
+	        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
+				noffH.initData.virtualAddr, noffH.initData.size);
+					executable->ReadAt(&(machine->mainMemory[pageTable[i].physicalPage*PageSize]),
+				PageSize, noffH.initData.inFileAddr+i*PageSize);
 
-        executable->ReadAt(&(machine->mainMemory[memoryLoc]),
-			noffH.initData.size, noffH.initData.inFileAddr);
+			}
     }
 
 }
