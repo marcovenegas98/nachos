@@ -117,20 +117,30 @@ AddrSpace::AddrSpace(OpenFile *executable)
 			for(int y = 0; y < PageSize; y++){
 	        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n",
 				noffH.code.virtualAddr, noffH.code.size);
-	        executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*size]),
-				size, noffH.code.inFileAddr+y	*size);
+	        executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
+				PageSize, noffH.code.inFileAddr+y	*PageSize);
 			}
     }
     if (noffH.initData.size > 0) {
 			for(int y = 0; y < PageSize; y++){
 	        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
 				noffH.initData.virtualAddr, noffH.initData.size);
-					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*size]),
-				size, noffH.initData.inFileAddr+y*size);
+					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
+				PageSize, noffH.initData.inFileAddr+y*PageSize);
 
 			}
     }
 
+		if (noffH.uninitData.size > 0) {
+			for(int y = 0; y < PageSize; y++){
+	        DEBUG('a', "Initializing uninitialize data segment, at 0x%x, size %d\n",
+				noffH.uninitData.virtualAddr, noffH.uninitData.size);
+					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
+				PageSize, noffH.uninitData.inFileAddr+y*PageSize);
+
+			}
+    }
+		//FALTA LO MISMO PARA LA PILA, QUE NO SE COMO SE PONE.
 }
 
 //----------------------------------------------------------------------
