@@ -1,1 +1,1 @@
-CMakeLists.txt not found in /home/marco/Desktop/Sistemas Operativos/nachosX64/nachos64
+CMakeLists.txt not found in /home/marco/Desktop/Sistemas Operativos/nachos/nachos

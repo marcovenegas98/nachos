@@ -75,8 +75,8 @@ AddrSpace::AddrSpace(OpenFile *executable)
     numPages = divRoundUp(size, PageSize);
     size = numPages * PageSize;
 
-    //ASSERT(numPages <= NumPhysPages);
-    ASSERT(numPages <= availablePages);
+    //ASSERT(numPages <= NumPhysmyPages);
+    ASSERT(numPages <= myMap->NumClear());
     // check we're not trying
 						// to run anything too big --
 						// at least until we have
@@ -87,12 +87,13 @@ AddrSpace::AddrSpace(OpenFile *executable)
 // first, set up the translation
     pageTable = new TranslationEntry[numPages];
     for (i = 0; i < numPages; i++) {
-	pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
-	pageTable[i].physicalPage = myMap->Find();
-	pageTable[i].valid = true;
-	pageTable[i].use = false;
-	pageTable[i].dirty = false;
-	pageTable[i].readOnly = false;  // if the code segment was entirely on
+        pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
+        pageTable[i].physicalPage = myMap->Find();
+        bzero(machine->mainMemory+pageTable[i].physicalPage*PageSize, PageSize);
+        pageTable[i].valid = true;
+        pageTable[i].use = false;
+        pageTable[i].dirty = false;
+        pageTable[i].readOnly = false;  // if the code segment was entirely on
 					// a separate page, we could set its
 					// pages to be read-only
     }
@@ -110,7 +111,7 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
 // zero out the entire address space, to zero the unitialized data segment
 // and the stack segment
-    bzero(machine->mainMemory, size);
+    //bzero(machine->mainMemory, size);
 // then, copy in the code and data segments into memory
     if (noffH.code.size > 0){
 			//Buscar en la tabla el espacio fisico correspondiente al espacio virtual
@@ -133,26 +134,42 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
 		if (noffH.uninitData.size > 0) {
 			for(int y = 0; y < PageSize; y++){
-	        DEBUG('a', "Initializing uninitialize data segment, at 0x%x, size %d\n",
+	        DEBUG('a', "Initializing uninitialized data segment, at 0x%x, size %d\n",
 				noffH.uninitData.virtualAddr, noffH.uninitData.size);
 					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
 				PageSize, noffH.uninitData.inFileAddr+y*PageSize);
 
 			}
     }
-		for(int y = 0; y < UserStackSize; y++){
-			//Reserving the stack size for the process.
-			myMap->Find();
-		}
-		//FALTA LO MISMO PARA LA PILA, QUE NO SE COMO SE PONE.
+//		for(int y = 0; y < UserStackSize; y++){
+//			//Reserving the stack size for the process.
+//			myMap->Find();
+//		}
+//		//FALTA LO MISMO PARA LA PILA, QUE NO SE COMO SE PONE.
 }
 
 AddrSpace::AddrSpace(AddrSpace *space){
-	this->pageTable = space->pageTable;
-	for(int y = 0; y < UserStackSize; y++){
-		//Reserving the stack size for the child process.
-		myMap->Find();
-	}
+    ASSERT(UserStackSize/PageSize <= myMap->NumClear());
+    this->numPages = space->numPages;
+
+    for(int i = 0; i < numPages-UserStackSize/PageSize; ++i){
+        this->pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
+        this->pageTable[i].physicalPage = space->pageTable[i].physicalPage;
+        this->pageTable[i].valid = space->pageTable[i].valid;
+        this->pageTable[i].use = space->pageTable[i].use;
+        this->pageTable[i].dirty = space->pageTable[i].dirty;
+        this->pageTable[i].readOnly = space->pageTable[i].readOnly;
+    }
+
+    for(int i = numPages-UserStackSize/PageSize; i < numPages; ++i){
+        this->pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
+        this->pageTable[i].physicalPage = myMap->Find();
+        bzero(machine->mainMemory+pageTable[i].physicalPage*PageSize, PageSize);
+        this->pageTable[i].valid = true;
+        this->pageTable[i].use = false;
+        this->pageTable[i].dirty = false;
+        this->pageTable[i].readOnly = false;
+    }
 }
 
 //----------------------------------------------------------------------

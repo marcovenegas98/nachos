@@ -128,7 +128,6 @@ void NachosCreate(){
     returnFromSystemCall();
 }
 
-Semaphore * Console = new Semaphore("Sem", 0);
 void NachosWrite() {                   // System call 7
 
 /* System call definition described to user
@@ -146,7 +145,7 @@ void NachosWrite() {                   // System call 7
     buffer = parToCharPtr(machine->ReadRegister(4));
     OpenFileId id = machine->ReadRegister( 6 );	// Read file descriptor
     // Need a semaphore to synchronize access to console
-    //Console->P();
+    Console->P();
 
     switch (id) {
         case  ConsoleInput:	// User could not write to standard input
@@ -176,7 +175,7 @@ void NachosWrite() {                   // System call 7
     }
     // Update simulation stats, see details in Statistics class in machine/stats.c
     // NO SE COMO SE ACTUALIZAN LOS STATS
-    //Console->V();
+    Console->V();
 
     cout << "Saliendo write" << '\n';
 
@@ -268,12 +267,17 @@ printf("holi");
 	// We (kernel)-Fork to a new method to execute the child code
 	// Pass the user routine address, now in register 4, as a parameter
 	// Note: in 64 bits register 4 need to be casted to (void *)
-  int r4 = machine->ReadRegister( 4 ) ;
+    int r4 = machine->ReadRegister( 4 ) ;
 	newT->Fork( NachosForkThread, (void*) r4);
 	returnFromSystemCall();	// This adjust the PrevPC, PC, and NextPC registers
 
 	DEBUG( 'u', "Exiting Fork System call\n" );
 }	// Kernel_Fork
+
+void NachosYield(){
+    currentThread->Yield();
+    returnFromSystemCall();
+}
 
 void ExceptionHandler(ExceptionType which) {
     int type = machine->ReadRegister(2);
@@ -311,6 +315,10 @@ void ExceptionHandler(ExceptionType which) {
             case SC_Fork:{
               NachosFork();
               break;
+            }
+            case SC_Yield:{
+                NachosYield();
+                break;
             }
         }
     } else {

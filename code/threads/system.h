@@ -17,6 +17,7 @@
 #include "timer.h"
 #include "bitmap.h"
 #include "TablaNachos.h"
+#include "synch.h"
 
 // Initialization and cleanup routines
 extern void Initialize(int argc, char **argv); 	// Initialization,
@@ -36,6 +37,7 @@ extern Timer *timer;				// the hardware alarm clock
 extern Machine* machine;	// user program memory and registers
 extern BitMap* myMap;
 extern TablaNachos* tablaNachos;
+extern Semaphore* Console;
 
 #endif
 
