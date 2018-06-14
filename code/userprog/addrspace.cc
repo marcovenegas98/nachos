@@ -150,6 +150,7 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
 AddrSpace::AddrSpace(AddrSpace *space){
     ASSERT(UserStackSize/PageSize <= myMap->NumClear());
+    this->pageTable = new TranslationEntry[numPages];
     this->numPages = space->numPages;
 
     for(int i = 0; i < numPages-UserStackSize/PageSize; ++i){
