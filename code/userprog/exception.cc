@@ -145,7 +145,7 @@ void NachosWrite() {                   // System call 7
     buffer = parToCharPtr(machine->ReadRegister(4));
     OpenFileId id = machine->ReadRegister( 6 );	// Read file descriptor
     // Need a semaphore to synchronize access to console
-    Console->P();
+    ConsoleSem->P();
 
     switch (id) {
         case  ConsoleInput:	// User could not write to standard input
@@ -175,7 +175,7 @@ void NachosWrite() {                   // System call 7
     }
     // Update simulation stats, see details in Statistics class in machine/stats.c
     // NO SE COMO SE ACTUALIZAN LOS STATS
-    Console->V();
+    ConsoleSem->V();
 
     cout << "Saliendo write" << '\n';
 
@@ -198,7 +198,7 @@ void NachosRead(){
     OpenFileId id = machine->ReadRegister( 6 );	// Read file descriptor
     cout << id << "id\n";
     // Need a semaphore to synchronize access to console
-    //Console->P();
+    //ConsoleSem->P();
     //cout << "1" << '\n';
     bool standard = (id == ConsoleInput || id == ConsoleOutput || id == ConsoleOutput);
     int sizeRead = -1;
@@ -222,7 +222,7 @@ void NachosRead(){
     machine->WriteRegister(2, sizeRead); //Return the number of chars read, via r2
     // Update simulation stats, see details in Statistics class in machine/stats.c
     // NO SE COMO SE ACTUALIZAN LOS STATS
-    //Console->V();
+    //ConsoleSem->V();
     cout << sizeRead << '\n';
     cout << "Saliendo read" << '\n';
     returnFromSystemCall();

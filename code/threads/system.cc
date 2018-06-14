@@ -36,7 +36,7 @@ SynchDisk   *synchDisk;
 Machine *machine;	// user program memory and registers
 BitMap* myMap;		// Variable definition, no extern prepended
 TablaNachos* tablaNachos;
-Semaphore * Console;
+Semaphore * ConsoleSem;
 #endif
 
 #ifdef NETWORK
@@ -183,7 +183,7 @@ Initialize(int argc, char **argv)
     machine = new Machine(debugUserProg);	// this must come first
     myMap = new BitMap(32);
     tablaNachos = new TablaNachos();
-    Console = new Semaphore("Sem", 1);
+    ConsoleSem = new Semaphore("Sem", 1);
 #endif
 
 #ifdef FILESYS

@@ -37,7 +37,7 @@ extern Timer *timer;				// the hardware alarm clock
 extern Machine* machine;	// user program memory and registers
 extern BitMap* myMap;
 extern TablaNachos* tablaNachos;
-extern Semaphore* Console;
+extern Semaphore* ConsoleSem;
 
 #endif
 
