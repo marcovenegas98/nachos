@@ -22,17 +22,17 @@
 #define SC_Exit		1
 #define SC_Exec		2
 #define SC_Join		3
-#define SC_Create	4
-#define SC_Open		5
-#define SC_Read		6
-#define SC_Write	7
-#define SC_Close	8
-#define SC_Fork		9
-#define SC_Yield	10
-#define SC_SemCreate	11
-#define SC_SemDestroy	12
-#define SC_SemSignal	13
-#define SC_SemWait	14
+#define SC_Create	4 //ya
+#define SC_Open		5 //ya
+#define SC_Read		6 //ya
+#define SC_Write	7 //ya
+#define SC_Close	8 //ya
+#define SC_Fork		9 //ya
+#define SC_Yield	10 //ya
+#define SC_SemCreate	11 //ya
+#define SC_SemDestroy	12 //ya
+#define SC_SemSignal	13 //ya
+#define SC_SemWait	14 //ya
 
 #ifndef IN_ASM
 

@@ -282,12 +282,14 @@ void NachosSemCreate(){
     int initVal = machine->ReadRegister(4);
     int id = tablaSemaforos->crearSem(initVal);
     machine->WriteRegister(2, id);
+    returnFromSystemCall();
 }
 
 void NachosSemDestroy(){
     int id = machine->ReadRegister(4);
     int destruido = tablaSemaforos->destruirSem(id); //Si no se pudo destruir porque no existía, devuelve un -1
     machine->WriteRegister(2, destruido);
+    returnFromSystemCall();
 }
 
 void NachosSemSignal(){
@@ -299,6 +301,7 @@ void NachosSemSignal(){
         resultado = 1;
     }
     machine->WriteRegister(2, resultado);
+    returnFromSystemCall();
 }
 
 void NachosSemWait(){
@@ -310,6 +313,7 @@ void NachosSemWait(){
         resultado = 1;
     }
     machine->WriteRegister(2, resultado);
+    returnFromSystemCall();
 }
 
 void ExceptionHandler(ExceptionType which) {
