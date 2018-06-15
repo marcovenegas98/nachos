@@ -132,21 +132,6 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
 			}
     }
-/*
-		if (noffH.uninitData.size > 0) {
-			for(int y = 0; y < PageSize; y++){
-	        DEBUG('a', "Initializing uninitialized data segment, at 0x%x, size %d\n",
-				noffH.uninitData.virtualAddr, noffH.uninitData.size);
-					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
-				PageSize, noffH.uninitData.inFileAddr+y*PageSize);
-
-			}
-    }*/
-//		for(int y = 0; y < UserStackSize; y++){
-//			//Reserving the stack size for the process.
-//			myMap->Find();
-//		}
-//		//FALTA LO MISMO PARA LA PILA, QUE NO SE COMO SE PONE.
 }
 
 AddrSpace::AddrSpace(AddrSpace *space){

@@ -24,13 +24,14 @@
 #include "copyright.h"
 #include "system.h"
 #include "syscall.h"
-#include "synch.h"
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <iostream>
 using namespace std;
+void StartProcess(const char* p);
 //----------------------------------------------------------------------
 // ExceptionHandler
 // 	Entry point into the Nachos kernel.  Called when a user program
@@ -303,26 +304,18 @@ void NachosSemWait(){
     machine->WriteRegister(2, resultado);
 }
 
+void ExecThread(void* p){
+  StartProcess((char*) p);
+  ASSERT(false);
+}
+
 void NachosExec(){
-  char* file = parToCharPtr(machine->ReadRegister(4));
-  OpenFile *executable = fileSystem->Open(file);
-  AddrSpace *space;
-
-  if (executable == NULL) {
-    printf("Unable to open file %s\n", file);
-    return;
-  }
-  space = new AddrSpace(executable);
-  currentThread->space = space;
-
-  delete executable;			// close file
-
-  space->InitRegisters();		// set the initial register values
-  space->RestoreState();		// load page table register
-  machine->Run();			// jump to the user progam
-  ASSERT(false);			// machine->Run never returns;
-        // the address space exits
-        // by doing the syscall "exit"
+  int r4 = machine->ReadRegister(4);
+  char* buffer = parToCharPtr(r4);
+  cout << buffer;
+  Thread* t = new Thread("Executing new process.");
+  t->Fork(ExecThread,(void*) buffer );
+  ASSERT(false);
 }
 
 void ExceptionHandler(ExceptionType which) {
@@ -360,6 +353,7 @@ void ExceptionHandler(ExceptionType which) {
                 break;
             }
             case SC_Exit:{
+                currentThread->Finish();
                 returnFromSystemCall();
                 break;
             }
