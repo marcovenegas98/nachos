@@ -127,11 +127,11 @@ AddrSpace::AddrSpace(OpenFile *executable)
 	        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
 				noffH.initData.virtualAddr, noffH.initData.size);
 					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
-				PageSize, noffH.initData.inFileAddr+y*PageSize);
+				PageSize, noffH.code.inFileAddr+y*PageSize);
 
 			}
     }
-
+/*
 		if (noffH.uninitData.size > 0) {
 			for(int y = 0; y < PageSize; y++){
 	        DEBUG('a', "Initializing uninitialized data segment, at 0x%x, size %d\n",
@@ -140,7 +140,7 @@ AddrSpace::AddrSpace(OpenFile *executable)
 				PageSize, noffH.uninitData.inFileAddr+y*PageSize);
 
 			}
-    }
+    }*/
 //		for(int y = 0; y < UserStackSize; y++){
 //			//Reserving the stack size for the process.
 //			myMap->Find();

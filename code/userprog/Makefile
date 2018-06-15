@@ -45,6 +45,7 @@ main.o: ../threads/main.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -73,8 +74,9 @@ main.o: ../threads/main.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -166,7 +168,8 @@ main.o: ../threads/main.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../threads/scheduler.h ../threads/list.h \
  ../threads/utility.h ../machine/sysdep.h ../threads/copyright.h \
@@ -185,6 +188,7 @@ scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -213,8 +217,9 @@ scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -305,7 +310,8 @@ scheduler.o: ../threads/scheduler.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../threads/synch.h ../threads/thread.h \
  ../threads/utility.h ../machine/sysdep.h ../threads/copyright.h \
@@ -324,6 +330,7 @@ synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -352,8 +359,9 @@ synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -445,7 +453,8 @@ synch.o: ../threads/synch.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h
 system.o: ../threads/system.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../threads/system.h ../threads/utility.h \
  ../machine/sysdep.h ../threads/copyright.h /usr/include/c++/7/stdlib.h \
@@ -464,6 +473,7 @@ system.o: ../threads/system.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -492,8 +502,9 @@ system.o: ../threads/system.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -585,8 +596,8 @@ system.o: ../threads/system.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h \
- ../threads/preemptive.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h ../threads/preemptive.h
 thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../threads/thread.h ../threads/utility.h \
  ../machine/sysdep.h ../threads/copyright.h /usr/include/c++/7/stdlib.h \
@@ -605,6 +616,7 @@ thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -633,8 +645,9 @@ thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -726,7 +739,8 @@ thread.o: ../threads/thread.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h
 utility.o: ../threads/utility.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../threads/utility.h ../machine/sysdep.h \
  ../threads/copyright.h /usr/include/c++/7/stdlib.h \
@@ -745,6 +759,7 @@ utility.o: ../threads/utility.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -773,8 +788,9 @@ utility.o: ../threads/utility.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -805,6 +821,7 @@ threadtest.o: ../threads/threadtest.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -831,8 +848,9 @@ threadtest.o: ../threads/threadtest.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -924,7 +942,8 @@ threadtest.o: ../threads/threadtest.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/dinningph.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/dinningph.h
 dinningph.o: ../threads/dinningph.cc /usr/include/stdc-predef.h \
  ../threads/dinningph.h ../threads/synch.h ../threads/copyright.h \
  ../threads/thread.h ../threads/utility.h ../machine/sysdep.h \
@@ -944,6 +963,7 @@ dinningph.o: ../threads/dinningph.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -972,8 +992,9 @@ dinningph.o: ../threads/dinningph.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -999,6 +1020,7 @@ interrupt.o: ../machine/interrupt.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1027,8 +1049,9 @@ interrupt.o: ../machine/interrupt.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1120,7 +1143,8 @@ interrupt.o: ../machine/interrupt.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 sysdep.o: ../machine/sysdep.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -1133,8 +1157,9 @@ sysdep.o: ../machine/sysdep.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1149,10 +1174,11 @@ sysdep.o: ../machine/sysdep.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
  /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
  /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h \
  /usr/include/x86_64-linux-gnu/bits/sigaction.h \
@@ -1199,6 +1225,7 @@ sysdep.o: ../machine/sysdep.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/sys/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/mman-shared.h \
  /usr/include/x86_64-linux-gnu/sys/syscall.h \
  /usr/include/x86_64-linux-gnu/asm/unistd.h \
  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
@@ -1214,7 +1241,8 @@ sysdep.o: ../machine/sysdep.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/cpu_defines.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h ../machine/interrupt.h \
  ../threads/list.h ../threads/copyright.h ../threads/utility.h \
@@ -1305,7 +1333,8 @@ sysdep.o: ../machine/sysdep.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 stats.o: ../machine/stats.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../threads/utility.h ../threads/copyright.h \
  ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
@@ -1324,6 +1353,7 @@ stats.o: ../machine/stats.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1352,8 +1382,9 @@ stats.o: ../machine/stats.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1377,6 +1408,7 @@ timer.o: ../machine/timer.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1405,8 +1437,9 @@ timer.o: ../machine/timer.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1498,7 +1531,8 @@ timer.o: ../machine/timer.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 preemptive.o: ../threads/preemptive.cc /usr/include/stdc-predef.h \
  ../threads/preemptive.h ../threads/system.h ../threads/copyright.h \
  ../threads/utility.h ../machine/sysdep.h ../threads/copyright.h \
@@ -1517,6 +1551,7 @@ preemptive.o: ../threads/preemptive.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1545,8 +1580,9 @@ preemptive.o: ../threads/preemptive.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1638,22 +1674,25 @@ preemptive.o: ../threads/preemptive.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/sys/ptrace.h \
+ /usr/include/x86_64-linux-gnu/bits/ptrace-shared.h \
  /usr/include/x86_64-linux-gnu/sys/wait.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h \
  /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
  /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h \
  /usr/include/x86_64-linux-gnu/bits/sigaction.h \
@@ -1683,6 +1722,7 @@ addrspace.o: ../userprog/addrspace.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1711,8 +1751,9 @@ addrspace.o: ../userprog/addrspace.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1804,8 +1845,9 @@ addrspace.o: ../userprog/addrspace.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h \
- ../userprog/addrspace.h ../bin/noff.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h ../userprog/addrspace.h \
+ ../bin/noff.h
 bitmap.o: ../userprog/bitmap.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../userprog/bitmap.h ../threads/utility.h \
  ../threads/copyright.h ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
@@ -1824,6 +1866,7 @@ bitmap.o: ../userprog/bitmap.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1852,8 +1895,9 @@ bitmap.o: ../userprog/bitmap.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1877,6 +1921,7 @@ exception.o: ../userprog/exception.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -1905,8 +1950,9 @@ exception.o: ../userprog/exception.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -1998,8 +2044,8 @@ exception.o: ../userprog/exception.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h \
- ../userprog/syscall.h ../threads/synch.h ../userprog/TablaNachos.h \
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h ../userprog/syscall.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
@@ -2029,6 +2075,7 @@ progtest.o: ../userprog/progtest.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -2057,8 +2104,9 @@ progtest.o: ../userprog/progtest.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -2150,8 +2198,9 @@ progtest.o: ../userprog/progtest.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h \
- ../machine/console.h ../userprog/addrspace.h ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h ../machine/console.h \
+ ../userprog/addrspace.h
 console.o: ../machine/console.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../machine/console.h ../threads/utility.h \
  ../threads/copyright.h ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
@@ -2170,6 +2219,7 @@ console.o: ../machine/console.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -2198,8 +2248,9 @@ console.o: ../machine/console.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -2291,7 +2342,8 @@ console.o: ../machine/console.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 machine.o: ../machine/machine.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../machine/machine.h ../threads/utility.h \
  ../threads/copyright.h ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
@@ -2310,6 +2362,7 @@ machine.o: ../machine/machine.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -2338,8 +2391,9 @@ machine.o: ../machine/machine.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -2431,7 +2485,8 @@ machine.o: ../machine/machine.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 mipssim.o: ../machine/mipssim.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../machine/machine.h ../threads/utility.h \
  ../threads/copyright.h ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
@@ -2450,6 +2505,7 @@ mipssim.o: ../machine/mipssim.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -2478,8 +2534,9 @@ mipssim.o: ../machine/mipssim.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -2571,7 +2628,8 @@ mipssim.o: ../machine/mipssim.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 translate.o: ../machine/translate.cc /usr/include/stdc-predef.h \
  ../threads/copyright.h ../machine/machine.h ../threads/utility.h \
  ../threads/copyright.h ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
@@ -2590,6 +2648,7 @@ translate.o: ../machine/translate.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -2618,8 +2677,9 @@ translate.o: ../machine/translate.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -2711,7 +2771,8 @@ translate.o: ../machine/translate.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc ../threads/synch.h
+ /usr/include/c++/7/bits/istream.tcc ../userprog/TablaSemaforos.h \
+ ../threads/synch.h ../threads/synch.h
 TablaNachos.o: ../userprog/TablaNachos.cc /usr/include/stdc-predef.h \
  ../userprog/TablaNachos.h ../userprog/bitmap.h ../threads/copyright.h \
  ../threads/utility.h ../threads/copyright.h ../machine/sysdep.h \
@@ -2730,6 +2791,7 @@ TablaNachos.o: ../userprog/TablaNachos.cc /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -2758,8 +2820,9 @@ TablaNachos.o: ../userprog/TablaNachos.cc /usr/include/stdc-predef.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -2848,9 +2911,7 @@ TablaNachos.o: ../userprog/TablaNachos.cc /usr/include/stdc-predef.h \
  /usr/include/c++/7/bits/istream.tcc
 TablaSemaforos.o: ../userprog/TablaSemaforos.cc \
  /usr/include/stdc-predef.h ../userprog/TablaSemaforos.h \
- ../userprog/bitmap.h ../threads/copyright.h ../threads/utility.h \
- ../threads/copyright.h ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
- /usr/include/c++/7/cstdlib \
+ /usr/include/c++/7/cstdio \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -2859,17 +2920,29 @@ TablaSemaforos.o: ../userprog/TablaSemaforos.cc \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/cpu_defines.h \
- /usr/include/stdlib.h \
+ /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/libio.h \
+ /usr/include/x86_64-linux-gnu/bits/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h ../userprog/bitmap.h \
+ ../threads/copyright.h ../threads/utility.h ../threads/copyright.h \
+ ../machine/sysdep.h /usr/include/c++/7/stdlib.h \
+ /usr/include/c++/7/cstdlib /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
@@ -2891,19 +2964,11 @@ TablaSemaforos.o: ../userprog/TablaSemaforos.cc \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/7/bits/std_abs.h /usr/include/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/string.h \
+ /usr/include/c++/7/bits/std_abs.h /usr/include/string.h \
  /usr/include/strings.h ../filesys/openfile.h ../threads/synch.h \
  ../threads/thread.h ../threads/utility.h ../machine/machine.h \
  ../machine/translate.h ../machine/disk.h ../userprog/addrspace.h \
- ../filesys/filesys.h ../filesys/openfile.h ../threads/list.h \
- /usr/include/c++/7/cstdio
+ ../filesys/filesys.h ../filesys/openfile.h ../threads/list.h
 # DEPENDENCIES MUST END AT END OF FILE
 # IF YOU PUT STUFF HERE IT WILL GO AWAY
 # see make depend above
