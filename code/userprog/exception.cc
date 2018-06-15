@@ -84,6 +84,20 @@ char * parToCharPtr(int position){
 }
 
 void NachosOpen(){
+  char* path;
+  int rst;
+  int r4 = machine->ReadRegister(4);
+  path = parToCharPtr(r4);
+  int unixID = open(path, O_RDWR);
+  cout<<unixID<<"\n";
+  if(unixID != -1){
+    rst = tablaNachos->Open(unixID);
+  } else {
+    close(unixID);
+  }
+  machine->WriteRegister(2,rst);
+  returnFromSystemCall();/*
+  esto estaba malo,
     cout << "Entrando Open" << '\n';
     tablaNachos->Print();
     char * path = parToCharPtr(machine->ReadRegister(4)); //Returns path as char *
@@ -97,7 +111,7 @@ void NachosOpen(){
         cout << NachosHandle << "Nachos\n";
         machine->WriteRegister(2, NachosHandle);
     }
-    cout << "Saliendo Open" << '\n';
+    cout << "Saliendo Open" << '\n';*/
     returnFromSystemCall();
 }
 
@@ -204,7 +218,8 @@ void NachosRead(){
 
     //Reads and stores into buffer.
     if(standard){
-        sizeRead = static_cast<int>(read(id, buffer, size));
+        cout << "holi2\n";
+        sizeRead = static_cast<int>(read(tablaNachos->getUnixHandle(id), buffer, size));
     }else{
         if(tablaNachos->isOpened(id)) {
             cout << "holi3\n";
