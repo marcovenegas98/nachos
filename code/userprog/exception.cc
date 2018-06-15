@@ -96,23 +96,6 @@ void NachosOpen(){
     close(unixID);
   }
   machine->WriteRegister(2,rst);
-  returnFromSystemCall();/*
-  esto estaba malo,
-    cout << "Entrando Open" << '\n';
-    tablaNachos->Print();
-    char * path = parToCharPtr(machine->ReadRegister(4)); //Returns path as char *
-    cout << path << '\n';
-    int UnixHandle = open(path, O_RDWR);
-    if(-1 == UnixHandle){
-        cout << "error open\n";
-        machine->WriteRegister(2, -1);
-    }else{
-        int NachosHandle = tablaNachos->Open(UnixHandle);
-        cout << NachosHandle << "Nachos\n";
-        machine->WriteRegister(2, NachosHandle);
-    }
-    cout << "Saliendo Open" << '\n';*/
-    returnFromSystemCall();
 }
 
 void NachosClose(){
@@ -129,7 +112,6 @@ void NachosClose(){
     }
     machine->WriteRegister(4, result);
     cout << "Saliendo Close" << '\n';
-    returnFromSystemCall();
 }
 
 void NachosCreate(){
@@ -138,7 +120,6 @@ void NachosCreate(){
     int result = creat(path, S_IRWXU); //Create file and open it with read, write and execute rights.
     machine->WriteRegister(4, result);
     cout << "Saliendo create" << '\n';
-    returnFromSystemCall();
 }
 
 void NachosWrite() {                   // System call 7
@@ -192,8 +173,6 @@ void NachosWrite() {                   // System call 7
 
     cout << "Saliendo write" << '\n';
 
-    returnFromSystemCall();		// Update the PC registers
-
 }       // NachosWrite
 
 void NachosRead(){
@@ -239,7 +218,6 @@ void NachosRead(){
     //ConsoleSem->V();
     cout << sizeRead << '\n';
     cout << "Saliendo read" << '\n';
-    returnFromSystemCall();
 }
 
 //void NachosForkThread( int p ) { // for 32 bits version
@@ -283,28 +261,24 @@ void NachosFork() {			// System call 9
 	// Note: in 64 bits register 4 need to be casted to (void *)
     long r4 = machine->ReadRegister( 4 ) ;
 	newT->Fork( NachosForkThread, (void*) r4);
-	returnFromSystemCall();	// This adjust the PrevPC, PC, and NextPC registers
 
 	DEBUG( 'u', "Exiting Fork System call\n" );
 }	// Kernel_Fork
 
 void NachosYield(){
     currentThread->Yield();
-    returnFromSystemCall();
 }
 
 void NachosSemCreate(){
     int initVal = machine->ReadRegister(4);
     int id = tablaSemaforos->crearSem(initVal);
     machine->WriteRegister(2, id);
-    returnFromSystemCall();
 }
 
 void NachosSemDestroy(){
     int id = machine->ReadRegister(4);
     int destruido = tablaSemaforos->destruirSem(id); //Si no se pudo destruir porque no existía, devuelve un -1
     machine->WriteRegister(2, destruido);
-    returnFromSystemCall();
 }
 
 void NachosSemSignal(){
@@ -316,7 +290,6 @@ void NachosSemSignal(){
         resultado = 1;
     }
     machine->WriteRegister(2, resultado);
-    returnFromSystemCall();
 }
 
 void NachosSemWait(){
@@ -328,7 +301,28 @@ void NachosSemWait(){
         resultado = 1;
     }
     machine->WriteRegister(2, resultado);
-    returnFromSystemCall();
+}
+
+void NachosExec(){
+  char* file = parToCharPtr(machine->ReadRegister(4));
+  OpenFile *executable = fileSystem->Open(file);
+  AddrSpace *space;
+
+  if (executable == NULL) {
+    printf("Unable to open file %s\n", file);
+    return;
+  }
+  space = new AddrSpace(executable);
+  currentThread->space = space;
+
+  delete executable;			// close file
+
+  space->InitRegisters();		// set the initial register values
+  space->RestoreState();		// load page table register
+  machine->Run();			// jump to the user progam
+  ASSERT(false);			// machine->Run never returns;
+        // the address space exits
+        // by doing the syscall "exit"
 }
 
 void ExceptionHandler(ExceptionType which) {
@@ -337,26 +331,32 @@ void ExceptionHandler(ExceptionType which) {
         switch (type) {
             case SC_Halt: {
                 NachosHalt();
+                returnFromSystemCall();
                 break;
             }
             case SC_Open: {
                 NachosOpen();
+                returnFromSystemCall();
                 break;
             }
             case SC_Write: {
                 NachosWrite();
+                returnFromSystemCall();
                 break;
             }
             case SC_Read: {
                 NachosRead();
+                returnFromSystemCall();
                 break;
             }
             case SC_Create:{
                 NachosCreate();
+                returnFromSystemCall();
                 break;
             }
             case SC_Close:{
                 NachosClose();
+                returnFromSystemCall();
                 break;
             }
             case SC_Exit:{
@@ -365,29 +365,39 @@ void ExceptionHandler(ExceptionType which) {
             }
             case SC_Fork:{
               NachosFork();
+              returnFromSystemCall();
               break;
             }
             case SC_Yield:{
                 NachosYield();
+                returnFromSystemCall();
                 break;
             }
             case SC_SemCreate:{
                 NachosSemCreate();
+                returnFromSystemCall();
                 break;
             }
             case SC_SemDestroy:{
                 NachosSemDestroy();
+                returnFromSystemCall();
                 break;
             }
             case SC_SemSignal:{
                 NachosSemSignal();
+                returnFromSystemCall();
                 break;
             }
             case SC_SemWait:{
                 NachosSemWait();
+                returnFromSystemCall();
                 break;
             }
-
+            case SC_Exec:{
+              NachosExec();
+              returnFromSystemCall();
+              break;
+            }
         }
     } else {
         printf("Unexpected user mode exception %d %d\n", which, type);
