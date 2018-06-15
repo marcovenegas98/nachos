@@ -25,7 +25,6 @@
 #include "system.h"
 #include "syscall.h"
 #include "synch.h"
-#include "TablaNachos.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -263,7 +262,7 @@ void NachosFork() {			// System call 9
 	// This new constructor will copy the shared segments (space variable) from currentThread, passed
 	// as a parameter, and create a new stack for the new child
 	newT->space = new AddrSpace( currentThread->space );
-printf("holi");
+
 	// We (kernel)-Fork to a new method to execute the child code
 	// Pass the user routine address, now in register 4, as a parameter
 	// Note: in 64 bits register 4 need to be casted to (void *)
@@ -279,9 +278,42 @@ void NachosYield(){
     returnFromSystemCall();
 }
 
+void NachosSemCreate(){
+    int initVal = machine->ReadRegister(4);
+    int id = tablaSemaforos->crearSem(initVal);
+    machine->WriteRegister(2, id);
+}
+
+void NachosSemDestroy(){
+    int id = machine->ReadRegister(4);
+    int destruido = tablaSemaforos->destruirSem(id); //Si no se pudo destruir porque no existía, devuelve un -1
+    machine->WriteRegister(2, destruido);
+}
+
+void NachosSemSignal(){
+    int resultado = -1;
+    int id = machine->ReadRegister(4);
+    Semaphore* sem = tablaSemaforos->getSem(id);
+    if(sem != nullptr){ //Si el semáforo existe
+        sem->V();
+        resultado = 1;
+    }
+    machine->WriteRegister(2, resultado);
+}
+
+void NachosSemWait(){
+    int resultado = -1;
+    int id = machine->ReadRegister(4);
+    Semaphore* sem = tablaSemaforos->getSem(id);
+    if(sem != nullptr){ //Si el semáforo existe
+        sem->P();
+        resultado = 1;
+    }
+    machine->WriteRegister(2, resultado);
+}
+
 void ExceptionHandler(ExceptionType which) {
     int type = machine->ReadRegister(2);
-
     if ((which == SyscallException)) {
         switch (type) {
             case SC_Halt: {
@@ -320,6 +352,23 @@ void ExceptionHandler(ExceptionType which) {
                 NachosYield();
                 break;
             }
+            case SC_SemCreate:{
+                NachosSemCreate();
+                break;
+            }
+            case SC_SemDestroy:{
+                NachosSemDestroy();
+                break;
+            }
+            case SC_SemSignal:{
+                NachosSemSignal();
+                break;
+            }
+            case SC_SemWait:{
+                NachosSemWait();
+                break;
+            }
+
         }
     } else {
         printf("Unexpected user mode exception %d %d\n", which, type);

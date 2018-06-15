@@ -17,6 +17,7 @@
 #include "timer.h"
 #include "bitmap.h"
 #include "TablaNachos.h"
+#include "TablaSemaforos.h"
 #include "synch.h"
 
 // Initialization and cleanup routines
@@ -38,6 +39,7 @@ extern Machine* machine;	// user program memory and registers
 extern BitMap* myMap;
 extern TablaNachos* tablaNachos;
 extern Semaphore* ConsoleSem;
+extern TablaSemaforos* tablaSemaforos;
 
 #endif
 

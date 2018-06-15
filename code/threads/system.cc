@@ -37,6 +37,7 @@ Machine *machine;	// user program memory and registers
 BitMap* myMap;		// Variable definition, no extern prepended
 TablaNachos* tablaNachos;
 Semaphore * ConsoleSem;
+TablaSemaforos * tablaSemaforos;
 #endif
 
 #ifdef NETWORK
@@ -183,7 +184,8 @@ Initialize(int argc, char **argv)
     machine = new Machine(debugUserProg);	// this must come first
     myMap = new BitMap(32);
     tablaNachos = new TablaNachos();
-    ConsoleSem = new Semaphore("Sem", 1);
+    ConsoleSem = new Semaphore("ConsoleSem", 1);
+    tablaSemaforos = new TablaSemaforos();
 #endif
 
 #ifdef FILESYS
