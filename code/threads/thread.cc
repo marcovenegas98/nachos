@@ -97,7 +97,6 @@ Thread::Fork(VoidFunctionPtr func, void* arg)
 #endif
 
     StackAllocate(func, arg);
-
     IntStatus oldLevel = interrupt->SetLevel(IntOff);
     scheduler->ReadyToRun(this);	// ReadyToRun assumes that interrupts 
 					// are disabled!

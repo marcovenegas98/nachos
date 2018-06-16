@@ -18,9 +18,9 @@
 /* system call codes -- used by the stubs to tell the kernel which system call
  * is being asked for
  */
-#define SC_Halt		0//ya
-#define SC_Exit		1
-#define SC_Exec		2//ya
+#define SC_Halt		0 //ya
+#define SC_Exit		1 //ya
+#define SC_Exec		2 //ya
 #define SC_Join		3
 #define SC_Create	4 //ya
 #define SC_Open		5 //ya

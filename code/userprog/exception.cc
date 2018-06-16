@@ -305,17 +305,47 @@ void NachosSemWait(){
 }
 
 void ExecThread(void* p){
-  StartProcess((char*) p);
-  ASSERT(false);
+    OpenFile *file = fileSystem->Open((const char *)p);
+    AddrSpace *addrSpace;
+
+    if (file == NULL) {
+        printf("Unable to open file %s\n", p);
+        return;
+    }
+    addrSpace = new AddrSpace(file);
+    currentThread->space = addrSpace;
+
+    delete file;			// close file
+
+    currentThread->space->InitRegisters();		// set the initial register values
+    currentThread->space->RestoreState();		// load page table register
+
+    machine->WriteRegister(RetAddrReg, 4);
+
+    machine->Run();			// jump to the user progam
+    ASSERT(false);			// machine->Run never returns;
+    // the address space exits
+    // by doing the syscall "exit"
 }
 
 void NachosExec(){
   int r4 = machine->ReadRegister(4);
   char* buffer = parToCharPtr(r4);
-  cout << buffer;
   Thread* t = new Thread("Executing new process.");
   t->Fork(ExecThread,(void*) buffer );
+  cout << buffer << endl;
   ASSERT(false);
+}
+
+void NachosExit(){
+    int status = machine->ReadRegister(4);
+    ASSERT(status == 0);
+    currentThread->Finish();
+}
+
+void NachosJoin(){
+    int id = machine->ReadRegister(4);
+
 }
 
 void ExceptionHandler(ExceptionType which) {
@@ -353,7 +383,7 @@ void ExceptionHandler(ExceptionType which) {
                 break;
             }
             case SC_Exit:{
-                currentThread->Finish();
+                NachosExit();
                 returnFromSystemCall();
                 break;
             }

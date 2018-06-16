@@ -90,7 +90,7 @@ AddrSpace::AddrSpace(OpenFile *executable)
     for (i = 0; i < numPages; i++) {
         pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
         pageTable[i].physicalPage = myMap->Find();
-        bzero(machine->mainMemory+pageTable[i].physicalPage*PageSize, PageSize);
+        bzero(machine->mainMemory+pageTable[i].physicalPage*PageSize, PageSize); //Zero out that space in memory
         pageTable[i].valid = true;
         pageTable[i].use = false;
         pageTable[i].dirty = false;
@@ -114,20 +114,22 @@ AddrSpace::AddrSpace(OpenFile *executable)
 // and the stack segment
     //bzero(machine->mainMemory, size);
 // then, copy in the code and data segments into memory
+    unsigned int numCodePages = divRoundUp(noffH.code.size, PageSize);
     if (noffH.code.size > 0){
 			//Buscar en la tabla el espacio fisico correspondiente al espacio virtual
-			for(int y = 0; y < PageSize; y++){
+			for(int y = 0; y < numCodePages; y++){
 	        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n",
 				noffH.code.virtualAddr, noffH.code.size);
-	        executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
-				PageSize, noffH.code.inFileAddr+y	*PageSize);
+	        executable->ReadAt(&machine->mainMemory[pageTable[y].physicalPage*PageSize],
+				PageSize, noffH.code.inFileAddr+y*PageSize);
 			}
     }
+    unsigned int numDataPages = divRoundUp(noffH.initData.size, PageSize);
     if (noffH.initData.size > 0) {
-			for(int y = 0; y < PageSize; y++){
+			for(int y = 0; y < numDataPages; y++){
 	        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
 				noffH.initData.virtualAddr, noffH.initData.size);
-					executable->ReadAt(&(machine->mainMemory[pageTable[y].physicalPage*PageSize]),
+					executable->ReadAt(&machine->mainMemory[pageTable[y].physicalPage*PageSize],
 				PageSize, noffH.code.inFileAddr+y*PageSize);
 
 			}
@@ -166,6 +168,9 @@ AddrSpace::AddrSpace(AddrSpace *space){
 
 AddrSpace::~AddrSpace()
 {
+    for(int i = 0; i < numPages; ++i){
+        myMap->Clear(pageTable[i].physicalPage);
+    }
    delete pageTable;
 }
 
